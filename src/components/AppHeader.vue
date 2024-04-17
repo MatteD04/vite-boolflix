@@ -1,6 +1,16 @@
 <script>
+import SearchBar from './SearchBar.vue';
+
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    components: { 
+        SearchBar 
+    },
+    methods: {
+      searchMovie(searchText) {
+        this.$emit('search', searchText);
+      }
+    }
 }
 </script>
 
@@ -9,10 +19,7 @@ export default {
         <div>
             <h1>BOOLFLIX</h1>
         </div>
-        <div class="input">
-            <input type="text">
-            <button>🔍</button>
-        </div>
+        <SearchBar @search="searchMovie"></SearchBar>
     </div>
 </template>
 
@@ -20,19 +27,6 @@ export default {
 .header{
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
-}
-.input{
-    display: flex;
-    input{
-        width: 200px;
-        font-size: 17px;
-    }
-    button{
-        width: 50px;
-        font-size: 20px;
-        background-color: white;
-        cursor: pointer;
-    }
+    margin: 30px 0;
 }
 </style>
