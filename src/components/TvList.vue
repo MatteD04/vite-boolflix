@@ -1,9 +1,9 @@
 <script>
 import { store } from '../store.js';
 export default {
-    name: 'FilmList',
+    name: 'TvListList',
     props: {
-      movieInfo: Object
+        SerieInfo: Object
     },
     data() {
         return {
@@ -22,13 +22,13 @@ export default {
     <div class="single-film"> 
         <ul>
             <li>
-                <p><strong>Titolo:</strong> {{ movieInfo.title }}</p>
-                <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
+                <p><strong>Titolo:</strong> {{ SerieInfo.name }}</p>
+                <p><strong>Titolo originale:</strong>{{ SerieInfo.original_name }}</p>
                 <div class="language">
                     <p><strong>Lingua: </strong></p>
-                    <div><img :src="getImage( movieInfo.original_language )"></div>
+                    <div><img :src="getImage( SerieInfo.original_language )"></div>
                 </div>
-                <p><strong>Voto:</strong>{{ movieInfo.vote_average }}</p>
+                <p><strong>Voto:</strong>{{ SerieInfo.vote_average }}</p>
             </li>
         </ul>
     </div>

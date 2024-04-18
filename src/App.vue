@@ -26,6 +26,13 @@ export default {
       .then(response => {
         store.movies = response.data.results;
       });
+
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: queryParams
+      })
+      .then(response => {
+        store.series = response.data.results;
+      });
     },
   }
 }
