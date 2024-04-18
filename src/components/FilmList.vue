@@ -2,9 +2,7 @@
 export default {
     name: 'FilmList',
     props: {
-      movies: {
-        type: Array
-      }
+      movieInfo: Object
     }
 }
 </script>
@@ -12,11 +10,11 @@ export default {
 <template>
     <div class="single-film">
         <ul>
-            <li v-for="movie in movies">
-                <h2>Titolo: {{ movie.title }}</h2>
-                <h3>Titolo originale: {{ movie.original_title }}</h3>
-                <h3>Lingua: {{ movie.original_language }}</h3>
-                <h3>Voto: {{ movie.vote_average }}</h3>
+            <li>
+                <p><strong>Titolo:</strong> {{ movieInfo.title }}</p>
+                <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
+                <p><strong>Lingua:</strong> {{ movieInfo.original_language }}</p>
+                <p><strong>Voto:</strong> {{ movieInfo.vote_average }}</p>
             </li>
         </ul>
     </div>
@@ -29,6 +27,10 @@ export default {
     border: 1px solid black;
     li{
         list-style: none;
+        p{
+            line-height: 1.5;
+            font-size: 18px;
+        }
     }
 }
 </style>

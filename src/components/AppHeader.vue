@@ -1,15 +1,13 @@
 <script>
-import SearchBar from './SearchBar.vue';
+import { store } from '../store.js';
+import axios from 'axios';
 
 export default {
     name: 'AppHeader',
-    components: { 
-        SearchBar 
-    },
-    methods: {
-      searchMovie(searchText) {
-        this.$emit('search', searchText);
-      }
+    data() {
+      return {
+        store
+      };
     }
 }
 </script>
@@ -19,7 +17,10 @@ export default {
         <div>
             <h1>BOOLFLIX</h1>
         </div>
-        <SearchBar @search="searchMovie"></SearchBar>
+        <div class="input">
+            <input type="text" v-model="store.searchText" placeholder="cerca film o serie TV">
+            <button @click="$emit('searchPerformed')">🔍</button>
+        </div>
     </div>
 </template>
 
@@ -28,5 +29,19 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 30px 0;
+}
+.input{
+    display: flex;
+    input{
+        width: 200px;
+        font-size: 16px;
+        padding: 0 10px;
+    }
+    button{
+        width: 50px;
+        font-size: 20px;
+        background-color: white;
+        cursor: pointer;
+    }
 }
 </style>

@@ -1,8 +1,14 @@
 <script>
+import { store } from '../store.js';
 import FilmList from './FilmList.vue';
 
 export default {
     name: 'AppMain',
+    data() {
+        return {
+            store
+        };
+    },
     components: {
         FilmList
     },
@@ -11,7 +17,7 @@ export default {
 
 <template>
     <div class="main-list">
-        <FilmList></FilmList>
+        <FilmList v-for="movie in store.movies" :movieInfo="movie"></FilmList>
     </div>
 </template>
 
