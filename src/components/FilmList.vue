@@ -1,20 +1,25 @@
 <script>
+import { store } from '../store.js';
 export default {
     name: 'FilmList',
     props: {
       movieInfo: Object
+    },
+    methods : {
+        getImage(img) {
+            return new URL(`../assets/${img}`, import.meta.url).href;
+        },
     }
 }
 </script>
 
 <template>
-    <div class="single-film">
+    <div class="single-film"> 
         <ul>
             <li>
                 <p><strong>Titolo:</strong> {{ movieInfo.title }}</p>
                 <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
                 <p><strong>Lingua:</strong> {{ movieInfo.original_language }}</p>
-                <p><strong>Voto:</strong> {{ movieInfo.vote_average }}</p>
             </li>
         </ul>
     </div>
