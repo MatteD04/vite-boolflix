@@ -5,9 +5,14 @@ export default {
     props: {
       movieInfo: Object
     },
+    data() {
+        return {
+            store
+        };
+    },
     methods : {
         getImage(img) {
-            return new URL(`../assets/${img}`, import.meta.url).href;
+            return new URL(`../assets/${img}.png`, import.meta.url).href;
         },
     }
 }
@@ -19,7 +24,10 @@ export default {
             <li>
                 <p><strong>Titolo:</strong> {{ movieInfo.title }}</p>
                 <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
-                <p><strong>Lingua:</strong> {{ movieInfo.original_language }}</p>
+                <div class="language">
+                    <p><strong>Lingua: </strong></p>
+                    <div><img :src="getImage( movieInfo.original_language )"></div>
+                </div>
             </li>
         </ul>
     </div>
@@ -35,6 +43,14 @@ export default {
         p{
             line-height: 1.5;
             font-size: 18px;
+        }
+        .language{
+            display: flex;
+            align-items: center;
+            img{
+                width: 20px;
+                margin-left: 10px;
+            }
         }
     }
 }
