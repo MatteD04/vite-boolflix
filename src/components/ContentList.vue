@@ -3,7 +3,7 @@ import { store } from '../store.js';
 export default {
     name: 'ContentList',
     props: {
-      movieInfo: Object
+      cardInfo: Object
     },
     data() {
         return {
@@ -30,19 +30,21 @@ export default {
 <template>
     <div class="single-film">
         <div class="poster-img">
-            <img :src="getPosterImage() + movieInfo.poster_path">
+            <img :src="getPosterImage() + cardInfo.poster_path">
         </div>
         <ul>
             <li>
-                <p><strong>Titolo:</strong> {{ movieInfo.title }}</p>
-                <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
+                <!-- titolo -->
+                <p><strong>Titolo:</strong> {{ cardInfo.title }}</p>
+                <p><strong>Titolo originale:</strong>{{ cardInfo.original_title }}</p>
+
                 <div class="language">
                     <p><strong>Lingua: </strong></p>
                     <div class="flags">
-                        <img :src="getImage( movieInfo.original_language )">
+                        <img :src="getImage( cardInfo.original_language )">
                     </div>
                 </div>
-                <p><strong>Voto:</strong>{{ movieInfo.vote_average }}</p>
+                <p><strong>Voto:</strong>{{ cardInfo.vote_average }}</p>
             </li>
         </ul>
     </div>
@@ -53,7 +55,10 @@ export default {
     width: calc((100% / 4) - 20px);
     margin: 10px 0 15px 0;
     .poster-img{
-        width: 100%;
+        img:hover {
+            display: none;
+            border: 1px solid white;
+        }
     }
     li{
         list-style: none;

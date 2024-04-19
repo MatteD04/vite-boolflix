@@ -18,18 +18,24 @@ export default {
 </script>
 
 <template>
-    <h2>Vedi i film</h2>
-    <div class="main-list">
-        <ContentList v-for="movie in store.movies" :movieInfo="movie"></ContentList>
-    </div>
+    <div class="main-container">
+        <h2>Vedi i film</h2>
+        <div class="main-list">
+            <ContentList v-for="movie in store.movies" :cardInfo="movie"></ContentList>
+        </div>
 
-    <h2>Vedi le serie TV</h2>
-    <div class="main-list">
-        <TvList v-for="singleSeries in store.series" :SerieInfo="singleSeries"></TvList>
+        <h2>Vedi le serie TV</h2>
+        <div class="main-list">
+            <TvList v-for="singleSeries in store.series" :tvInfo="singleSeries"></TvList>
+        </div>
     </div>
 </template>
 
 <style scoped lang="scss">
+
+.main-container{
+    color: white;
+}
 .main-list{
     display: flex;
     flex-wrap: wrap;

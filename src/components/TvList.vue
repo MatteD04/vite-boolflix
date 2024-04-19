@@ -3,32 +3,48 @@ import { store } from '../store.js';
 export default {
     name: 'TvList',
     props: {
-        SerieInfo: Object
+      tvInfo: Object
     },
     data() {
         return {
-            store
+            store,
+            flags : [
+                "en",
+                "es",
+                "fr",
+                "it"
+            ],
         };
     },
     methods : {
         getImage(img) {
             return new URL(`../assets/${img}.png`, import.meta.url).href;
         },
+        getPosterImage() {
+            return "https://image.tmdb.org/t/p/w300";
+        }
     }
 }
 </script>
 
 <template>
-    <div class="single-film"> 
+    <div class="single-film">
+        <div class="poster-img">
+            <img :src="getPosterImage() + tvInfo.poster_path">
+        </div>
         <ul>
             <li>
-                <p><strong>Titolo:</strong> {{ SerieInfo.name }}</p>
-                <p><strong>Titolo originale:</strong>{{ SerieInfo.original_name }}</p>
+                <!-- titolo -->
+                <p><strong>Titolo:</strong> {{ tvInfo.name }}</p>
+                <p><strong>Titolo originale:</strong>{{ tvInfo.original_name }}</p>
+
                 <div class="language">
                     <p><strong>Lingua: </strong></p>
-                    <div><img :src="getImage( SerieInfo.original_language )"></div>
+                    <div class="flags">
+                        <img :src="getImage( tvInfo.original_language )">
+                    </div>
                 </div>
-                <p><strong>Voto:</strong>{{ SerieInfo.vote_average }}</p>
+                <p><strong>Voto:</strong>{{ tvInfo.vote_average }}</p>
             </li>
         </ul>
     </div>
@@ -38,7 +54,9 @@ export default {
 .single-film{
     width: calc((100% / 4) - 20px);
     margin: 10px 0 15px 0;
-    border: 1px solid black;
+    .poster-img{
+        width: 100%;
+    }
     li{
         list-style: none;
         p{
@@ -48,9 +66,11 @@ export default {
         .language{
             display: flex;
             align-items: center;
-            img{
-                width: 20px;
-                margin-left: 10px;
+            .flags{
+                img{
+                    width: 20px;
+                    margin-left: 10px
+                };
             }
         }
     }

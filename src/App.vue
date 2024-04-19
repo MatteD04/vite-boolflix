@@ -42,7 +42,7 @@ export default {
 
 <template>
   <div class="container">
-    <AppHeader @searchPerformed="searchMovie"></AppHeader>
+      <AppHeader @searchPerformed="searchMovie"></AppHeader>
     <AppMain></AppMain>
   </div>
 </template>
