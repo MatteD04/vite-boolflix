@@ -5,10 +5,4 @@ export const store= reactive({
     series: [],
     searchText: '',
     apiKey: 'a9ff533b0dd476d2891f8e199163b7b0',
-    flags : [
-        "en",
-        "es",
-        "fr",
-        "it",
-    ],
 });

@@ -1,13 +1,19 @@
 <script>
 import { store } from '../store.js';
 export default {
-    name: 'FilmList',
+    name: 'ContentList',
     props: {
       movieInfo: Object
     },
     data() {
         return {
-            store
+            store,
+            flags : [
+                "en",
+                "es",
+                "fr",
+                "it"
+            ],
         };
     },
     methods : {
@@ -26,7 +32,9 @@ export default {
                 <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
                 <div class="language">
                     <p><strong>Lingua: </strong></p>
-                    <div><img :src="getImage( movieInfo.original_language )"></div>
+                    <div>
+                        <img :src="getImage( movieInfo.original_language )">
+                    </div>
                 </div>
                 <p><strong>Voto:</strong>{{ movieInfo.vote_average }}</p>
             </li>
@@ -37,7 +45,7 @@ export default {
 <style scoped lang="scss">
 .single-film{
     width: calc((100% / 4) - 20px);
-    margin: 30px 0 0 0;
+    margin: 10px 0 15px 0;
     border: 1px solid black;
     li{
         list-style: none;

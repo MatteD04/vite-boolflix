@@ -1,7 +1,7 @@
 <script>
 import { store } from '../store.js';
 export default {
-    name: 'TvListList',
+    name: 'TvList',
     props: {
         SerieInfo: Object
     },
@@ -37,7 +37,7 @@ export default {
 <style scoped lang="scss">
 .single-film{
     width: calc((100% / 4) - 20px);
-    margin: 30px 0 0 0;
+    margin: 10px 0 15px 0;
     border: 1px solid black;
     li{
         list-style: none;

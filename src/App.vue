@@ -20,17 +20,19 @@ export default {
         api_key: store.apiKey,
         query: store.searchText
       };
+      //per i film
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: queryParams
       })
-      .then(response => {
+      .then((response) => {
         store.movies = response.data.results;
       });
 
+      //per le serie
       axios.get('https://api.themoviedb.org/3/search/tv', {
         params: queryParams
       })
-      .then(response => {
+      .then((response) => {
         store.series = response.data.results;
       });
     },

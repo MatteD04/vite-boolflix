@@ -1,6 +1,6 @@
 <script>
 import { store } from '../store.js';
-import FilmList from './FilmList.vue';
+import ContentList from './ContentList.vue/index.js';
 import TvList from './TvList.vue';
 
 export default {
@@ -11,7 +11,8 @@ export default {
         };
     },
     components: {
-        FilmList
+        ContentList,
+        TvList
     },
 }
 </script>
@@ -24,7 +25,7 @@ export default {
 
     <h2>Vedi le serie TV</h2>
     <div class="main-list">
-        <TvList v-for="movie in store.series" :SerieInfo="movie"></TvList>
+        <TvList v-for="singleSeries in store.series" :SerieInfo="singleSeries"></TvList>
     </div>
 </template>
 
@@ -33,5 +34,8 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+h2{
+    margin-top: 40px;
 }
 </style>
