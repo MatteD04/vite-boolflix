@@ -20,19 +20,25 @@ export default {
         getImage(img) {
             return new URL(`../assets/${img}.png`, import.meta.url).href;
         },
+        getPosterImage() {
+            return "https://image.tmdb.org/t/p/w300";
+        }
     }
 }
 </script>
 
 <template>
-    <div class="single-film"> 
+    <div class="single-film">
+        <div class="poster-img">
+            <img :src="getPosterImage() + movieInfo.poster_path">
+        </div>
         <ul>
             <li>
                 <p><strong>Titolo:</strong> {{ movieInfo.title }}</p>
                 <p><strong>Titolo originale:</strong>{{ movieInfo.original_title }}</p>
                 <div class="language">
                     <p><strong>Lingua: </strong></p>
-                    <div>
+                    <div class="flags">
                         <img :src="getImage( movieInfo.original_language )">
                     </div>
                 </div>
@@ -46,7 +52,9 @@ export default {
 .single-film{
     width: calc((100% / 4) - 20px);
     margin: 10px 0 15px 0;
-    border: 1px solid black;
+    .poster-img{
+        width: 100%;
+    }
     li{
         list-style: none;
         p{
@@ -56,9 +64,11 @@ export default {
         .language{
             display: flex;
             align-items: center;
-            img{
-                width: 20px;
-                margin-left: 10px;
+            .flags{
+                img{
+                    width: 20px;
+                    margin-left: 10px
+                };
             }
         }
     }

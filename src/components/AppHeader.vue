@@ -14,7 +14,7 @@ export default {
 
 <template>
     <div class="header">
-        <div>
+        <div class="title">
             <h1>BOOLFLIX</h1>
         </div>
         <div class="input">
@@ -29,6 +29,9 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 30px 0;
+    .title{
+        color: red;
+    }
 }
 .input{
     display: flex;
