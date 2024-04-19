@@ -1,6 +1,6 @@
 <script>
 import { store } from '../store.js';
-import ContentList from './ContentList.vue/index.js';
+import ContentList from './ContentList.vue';
 import TvList from './TvList.vue';
 
 export default {
@@ -20,7 +20,7 @@ export default {
 <template>
     <h2>Vedi i film</h2>
     <div class="main-list">
-        <FilmList v-for="movie in store.movies" :movieInfo="movie"></FilmList>
+        <ContentList v-for="movie in store.movies" :movieInfo="movie"></ContentList>
     </div>
 
     <h2>Vedi le serie TV</h2>
